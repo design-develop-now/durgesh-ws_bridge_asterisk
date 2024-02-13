@@ -94,10 +94,15 @@ class RivaASRClient {
         this.recognizeStream.write(this.firstRequest);
     }
     end() {
-	if(this.recognizeStream === undefined) {
-		console.log("this.recognizeStream value is the special value `undefined`");
-	}else{
-        	this.recognizeStream.end();
+	try{
+		if(this.recognizeStream === undefined) {
+			console.log("this.recognizeStream value is the special value `undefined`");
+		}else{
+        		this.recognizeStream.end();
+		}
+	}
+	catch (err){
+		console.log("");
 	}
     }
 }
